@@ -1,34 +1,64 @@
-$primary: #8ba0d3;
-$secondary: #7284ad;
+$primary: #f4d082;
+$secondary: #efba75;
 $font-default: 16px;
 $border-color: #111111;
 $border-radius-default: 8px;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fff1db;
+}
+main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+img {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+}
 
 @mixin card($border-color, $border-radius-default) {
     border: 2px solid $border-color;
     border-radius: $border-radius-default;
     margin: 10px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .card {
-    @include card($primary, $secondary, $border-radius-default);
+    @include card($border-color, $border-radius-default);
+    width: fit-content;
+    height: fit-content;
+    max-width: 400px;
+
     &__title {
-        font-size: $font-default * 2;
+        margin: 10px;
+        font-size: $font-default * 1.5;
     }
     &__img-container {
+        @include card($border-color, $border-radius-default);
+
         margin: 20px;
+        padding: 5px;
+        width: 25%;
+        height: 25%;
+        width: fit-content;
+        height: fit-content;
     }
     &__description {
         font-size: $font-default;
     }
 
     &--gradient {
-        background: linear-gradient(75, $primary, $secondary);
+        background: linear-gradient(45deg, $primary, $secondary);
     }
-}
-
-img {
-    width: 100%;
-    height: 100%;
 }
